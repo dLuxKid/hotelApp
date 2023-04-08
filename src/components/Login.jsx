@@ -36,7 +36,7 @@ const Login = () => {
       .toLowerCase()
       .trim()
       .search(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/);
-    if (emailRegex < 0) {
+    if (emailRegex < 0 && !state.email) {
       setIsValid((prev) => ({ ...prev, name: false }));
     } else {
       setIsValid((prev) => ({ ...prev, name: true }));
@@ -53,7 +53,7 @@ const Login = () => {
   }, [state.password]);
 
   const validateState = useCallback(() => {
-    setIsFormValid(isValid.name && isValid.password ? true : false);
+    setIsFormValid(isValid.name && isValid.password);
     console.log(isFormValid, isValid);
   }, [state.email, state.password]);
 
