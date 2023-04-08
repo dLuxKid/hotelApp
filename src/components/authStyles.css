@@ -1,0 +1,70 @@
+form {
+  display: flex;
+  padding: 5%;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  height: 3.75rem;
+  padding-left: 30px;
+  margin-bottom: 4rem;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #eaf0f7;
+  color: #4f555a;
+  border: 0;
+  outline: 0;
+}
+
+input::placeholder {
+  color: #4f555a;
+  text-transform: capitalize;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.authBtnContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: -2rem;
+  padding-bottom: 2rem;
+}
+
+.authBtnContainer p {
+  align-self: flex-end;
+  padding: 30px 30px 50px 0;
+  color: #c7c7c7;
+  font-size: 14px;
+}
+
+.authBtnContainer button {
+  width: 100%;
+  padding: 15px 21px;
+  border: 0;
+  color: #fff;
+  font-size: 18px;
+  font-size: 600;
+  border-radius: 10px;
+  background: var(--base-blue);
+  box-shadow: rgba(68, 97, 243, 0.25) 0px 13px 27px -5px,
+  rgba(68, 97, 243, 0.25) 0px 10px 18px -8px;
+}
+
+
+.horizontalDash {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 3.125rem;
+}
+
+.horizontalDash div {
+    width: 30%;
+    height: 2px;
+    background: #dfdfdf;
+}
