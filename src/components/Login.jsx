@@ -1,10 +1,11 @@
 import React, { useState, useReducer, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "./authStyles.css";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useAuthProvider } from "../contexts/context";
 
 const initialState = {
-  token: "",
   email: "",
   password: "",
 };
@@ -14,12 +15,13 @@ const reducer = (state, action) => {
 };
 
 const Login = () => {
+  const { setCurrentUser } = useAuthProvider();
+
   const navigate = useNavigate();
   const [isValid, setIsValid] = useState({
-    name: true,
+    email: true,
     password: true,
   });
-  const [isFormValid, setIsFormValid] = useState(false);
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -37,9 +39,9 @@ const Login = () => {
       .trim()
       .search(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/);
     if (emailRegex < 0 && !state.email) {
-      setIsValid((prev) => ({ ...prev, name: false }));
+      setIsValid((prev) => ({ ...prev, email: false }));
     } else {
-      setIsValid((prev) => ({ ...prev, name: true }));
+      setIsValid((prev) => ({ ...prev, email: true }));
     }
   }, [state.email]);
 
@@ -52,32 +54,18 @@ const Login = () => {
     }
   }, [state.password]);
 
-  const validateState = useCallback(() => {
-    setIsFormValid(isValid.name && isValid.password);
-    console.log(isFormValid, isValid);
-  }, [state.email, state.password]);
-
   useEffect(() => {
     validateEmail();
     validatePassword();
-    validateState();
-  }, [
-    state.email,
-    state.password,
-    validateEmail,
-    validatePassword,
-    validateState,
-  ]);
+  }, [state.email, state.password, validateEmail, validatePassword]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    validateState();
-    if (isFormValid) {
-      const auth = getAuth();
-      auth.createUserWithEmailAndPassword( state.email, state.password)
+    if (isValid.email && isValid.password) {
+      signInWithEmailAndPassword(auth, state.email, state.password)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log(user);
+          setCurrentUser(user);
         })
         .catch((err) => {
           console.log(err);

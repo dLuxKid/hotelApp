@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import ImageHolder from "../../components/ImageHolder";
 import bedroom from "../../assets/bedroom.png";
-import beachview from '../../assets/beachview.jpg'
+import beachview from "../../assets/beachview.jpg";
 import "./register.css";
 import Login from "../../components/Login";
+import Signin from "../../components/Signin";
 
 const Register = () => {
-  document.title = 'welcome'
+  document.title = "welcome";
 
   const [click, setClick] = useState("signin");
 
@@ -27,7 +28,7 @@ const Register = () => {
             <img src={beachview} alt="beachview" />
           </div>
           <div className="authFormContainer">
-            <Login />
+            {click === "signin" ? <Login /> : <Signin />}
           </div>
         </div>
       </section>
