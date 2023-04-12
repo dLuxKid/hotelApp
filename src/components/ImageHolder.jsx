@@ -1,5 +1,5 @@
 import React from "react";
-import './imageHolder.css'
+import '../styles/imageHolder.css'
 
 const ImageHolder = ({ imgUrl, alt }) => {
   return (

@@ -1,12 +1,16 @@
 import React from "react";
-import "./Layout.css";
-import Register from "../pages/auth/Register";
+import "../styles/Layout.css";
+import Navbar from "../components/Navbar";
+import Routers from "../routers/Routers";
+import { useAuthProvider } from "../contexts/context";
 
 const Layout = () => {
+  const { currentUser } = useAuthProvider();
   return (
     <>
       <div className="bgTopImg"></div>
-      <Register />
+      {currentUser?.uid && <Navbar />}
+      <Routers />
     </>
   );
 };

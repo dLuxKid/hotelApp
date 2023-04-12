@@ -2,28 +2,33 @@ import React, { useState, useReducer, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/authStyles.css";
 import { auth } from "../firebase/firebase";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useAuthProvider } from "../contexts/context";
 
 const initialState = {
+  username: "",
   email: "",
   password: "",
+  confirmPassword: "",
 };
 
 const reducer = (state, action) => {
   return { ...state, [action.input]: action.value };
 };
 
-const Login = () => {
+const Signup = () => {
   const { setCurrentUser } = useAuthProvider();
 
   const navigate = useNavigate();
-  const [isValid, setIsValid] = useState({
-    email: true,
-    password: true,
-  });
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [isValid, setIsValid] = useState({
+    name: true,
+    email: true,
+    password: true,
+    confirmPassword: true,
+  });
 
   const handleChange = (e) => {
     const action = {
@@ -32,6 +37,14 @@ const Login = () => {
     };
     dispatch(action);
   };
+
+  const validateName = useCallback(() => {
+    if (state.username.trim().length < 5) {
+      setIsValid((prev) => ({ ...prev, name: false }));
+    } else {
+      setIsValid((prev) => ({ ...prev, name: true }));
+    }
+  }, [state.username]);
 
   const validateEmail = useCallback(() => {
     const emailRegex = state.email
@@ -54,15 +67,34 @@ const Login = () => {
     }
   }, [state.password]);
 
+  const validateConfirmPassword = useCallback(() => {
+    if (state.confirmPassword !== state.password) {
+      setIsValid((prev) => ({ ...prev, confirmPassword: false }));
+    } else {
+      setIsValid((prev) => ({ ...prev, confirmPassword: true }));
+    }
+  }, [state.confirmPassword]);
+
   useEffect(() => {
+    validateName();
     validateEmail();
     validatePassword();
-  }, [state.email, state.password, validateEmail, validatePassword]);
+    validateConfirmPassword();
+  }, [
+    state.username,
+    state.email,
+    state.password,
+    state.confirmPassword,
+    validateName,
+    validateEmail,
+    validatePassword,
+    validateConfirmPassword,
+  ]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isValid.email && isValid.password) {
-      signInWithEmailAndPassword(auth, state.email, state.password)
+      createUserWithEmailAndPassword(auth, state.email, state.password)
         .then((userCredential) => {
           const user = userCredential.user;
           setCurrentUser(user);
@@ -80,6 +112,19 @@ const Login = () => {
       <input
         autoFocus
         type="text"
+        placeholder="enter username"
+        onChange={handleChange}
+        inputMode="text"
+        autoCapitalize="false"
+        name="username"
+        onBlur={validateName}
+        value={state.username}
+        required
+        className="small_mb"
+      />
+      <input
+        autoFocus
+        type="text"
         placeholder="enter email"
         onChange={handleChange}
         inputMode="email"
@@ -88,7 +133,7 @@ const Login = () => {
         onBlur={validateEmail}
         value={state.email}
         required
-        className="big_mb"
+        className="small_mb"
       />
       <input
         type="text"
@@ -100,7 +145,19 @@ const Login = () => {
         onChange={handleChange}
         value={state.password}
         required
-        className="big_mb"
+        className="small_mb"
+      />
+      <input
+        type="text"
+        placeholder="confirm password"
+        inputMode="password"
+        autoCapitalize="false"
+        name="confirmPassword"
+        onBlur={validateConfirmPassword}
+        onChange={handleChange}
+        value={state.confirmPassword}
+        required
+        className="small_mb"
       />
       <div className="authBtnContainer">
         <p>Recover Password?</p>
@@ -114,4 +171,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

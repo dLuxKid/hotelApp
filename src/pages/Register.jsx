@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import ImageHolder from "../../components/ImageHolder";
-import bedroom from "../../assets/bedroom.png";
-import beachview from "../../assets/beachview.jpg";
-import "./register.css";
-import Login from "../../components/Login";
-import Signin from "../../components/Signin";
+import ImageHolder from "../components/ImageHolder";
+import bedroom from "../assets/bedroom.png";
+import beachview from "../assets/beachview.jpg";
+import "../styles/register.css";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 
 const Register = () => {
   document.title = "welcome";
@@ -28,7 +28,7 @@ const Register = () => {
             <img src={beachview} alt="beachview" />
           </div>
           <div className="authFormContainer">
-            {click === "signin" ? <Login /> : <Signin />}
+            {click === "signin" ? <Login /> : <Signup />}
           </div>
         </div>
       </section>
