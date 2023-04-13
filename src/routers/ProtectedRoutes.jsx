@@ -11,7 +11,7 @@ export const AuthRouter = () => {
 const PublicRouter = () => {
   const { currentUser } = useAuthProvider();
 
-  return currentUser?.uid ? <Outlet /> : <Navigate to="/register" />;
+  return currentUser?.uid ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default PublicRouter

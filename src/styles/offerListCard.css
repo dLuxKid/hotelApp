@@ -1,0 +1,52 @@
+.offerListCard {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding:.5rem 0;
+  border-bottom: 1.5px solid #dfdfdf;
+}
+
+.offerListCard:last-child {
+  border-bottom: 0;
+}
+
+.offerListName {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--accent-blue);
+}
+
+.offerListName p {
+  font-weight: 600;
+}
+
+.offerListName img {
+  width: 3.125rem;
+  height: 3.125rem;
+  border-radius: 50%;
+}
+
+.offerListBookNow {
+  display: flex;
+  justify-content: center;
+  gap:.5rem;
+  align-items: center;
+  padding: 0.5rem 1.5rem;
+  color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.offerListBookNow:hover {
+  background: var(--accent-blue);
+  color: #fff;
+  border-radius: 20px;
+}
+
+.offerListBookNow span {
+ align-self: center;
+display: flex;
+}

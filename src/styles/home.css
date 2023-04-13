@@ -1,0 +1,59 @@
+section {
+  padding: 12.5rem 5%;
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.specialOffer_Container {
+  width: 85%;
+  max-width: 56.25rem;
+}
+
+.specialOffer {
+  background: #fff;
+  padding: 5% 2.5%;
+  flex-direction: column;
+  border-radius: 20px;
+  display: flex;
+}
+
+.specialOffer_Header {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+}
+
+.specialOffer_Header h3 {
+  color: var(--accent-blue);
+  font-size: 600;
+}
+
+.bookNow_Container {
+    margin-top: 6.25rem;
+  height: 200px;
+  width: 100%;
+  background: #ffcb61;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.bookNow_Container h3 {
+    align-self: flex-start;
+    color: #fff;
+}
+
+.bookNow_Container button {
+    background: rgba(0, 0, 0, 0.01);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    align-self: center;
+}
