@@ -1,0 +1,26 @@
+.roomsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  width: 100%;
+  /* max-width: 56.25rem; */
+}
+
+.roomsHeader {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.roomsHeader h1 {
+  color: var(--accent-blue);
+  text-align: center;
+}
+
+.roomsContainer {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2rem;
+}

@@ -8,7 +8,7 @@ const Navbar = () => {
     { name: "Home", url: "/home", icon: <Icon icon="ic:round-home" /> },
     {
       name: "Rooms & Suites",
-      url: "/rooms&suites",
+      url: "/rooms",
       icon: <Icon icon="material-symbols:airline-seat-individual-suite" />,
     },
     { name: "Booking", url: "/booking", icon: <Icon icon="mdi:book-alert" /> },

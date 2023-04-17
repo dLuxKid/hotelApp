@@ -4,6 +4,8 @@ import Register from "../pages/Register";
 import Home from "../pages/Home";
 import { AuthRouter } from "./ProtectedRoutes";
 import PublicRouter from "./ProtectedRoutes";
+import Rooms from "../pages/Rooms";
+import AboutRooms from "../pages/AboutRooms";
 
 const Routers = () => {
   return (
@@ -13,6 +15,8 @@ const Routers = () => {
       </Route>
       <Route element={<PublicRouter />}>
         <Route path="/home" element={<Home />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms/:id" element={<AboutRooms />} />
       </Route>
     </Routes>
   );

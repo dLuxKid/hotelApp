@@ -1,7 +1,5 @@
-section {
-  padding: 12.5rem 5%;
+.homeSection {
   display: flex;
-  position: relative;
   justify-content: flex-end;
 }
 

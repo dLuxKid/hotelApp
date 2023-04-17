@@ -1,0 +1,43 @@
+.roomCardContainer {
+  background: #f5f5f5;
+  width: 100%;
+}
+
+.roomCardContainer img {
+  width: 50%;
+  max-width: 800px;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aboutRoom {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0 1rem;
+  justify-content: center;
+}
+
+.roomType {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.roomType h1 {
+  text-align: center;
+  color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.roomType h3 {
+  color: var(--accent-blue);
+}
+
+.roomType p {
+  color: #000;
+  text-indent: 50px;
+}

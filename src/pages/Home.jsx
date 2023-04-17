@@ -4,12 +4,14 @@ import bedroom from "../assets/bedroom.png";
 import "../styles/home.css";
 import { hotelRooms } from "../data/data";
 import OfferListCard from "../components/OfferListCard";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <main>
       <ImageHolder imgUrl={bedroom} alt="bedroom" />
-      <section>
+      <section className="homeSection">
         <div className="specialOffer_Container">
           <div className="specialOffer">
             <div className="specialOffer_Header">
@@ -27,7 +29,7 @@ const Home = () => {
           </div>
           <div className="bookNow_Container">
             <h3>Book your perfect deals</h3>
-            <button>Book now</button>
+            <button onClick={() => navigate("/rooms")}>Book now</button>
           </div>
         </div>
       </section>

@@ -136,7 +136,7 @@ const Signup = () => {
         className="small_mb"
       />
       <input
-        type="text"
+        type="password"
         placeholder="password"
         inputMode="password"
         autoCapitalize="false"
@@ -148,7 +148,7 @@ const Signup = () => {
         className="small_mb"
       />
       <input
-        type="text"
+        type="password"
         placeholder="confirm password"
         inputMode="password"
         autoCapitalize="false"

@@ -91,7 +91,7 @@ const Login = () => {
         className="big_mb"
       />
       <input
-        type="text"
+        type="password"
         placeholder="password"
         inputMode="password"
         autoCapitalize="false"
