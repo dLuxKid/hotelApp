@@ -1,7 +1,21 @@
 import React from "react";
-import '../styles/roomsContainerCard.css'
+import "../styles/roomsContainerCard.css";
+import { useNavigate } from "react-router-dom";
 
-const RoomsContainerCard = ({ imgUrl, type, bedType, occupancy, order }) => {
+const RoomsContainerCard = ({
+  imgUrl,
+  type,
+  bedType,
+  occupancy,
+  order,
+  id,
+}) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/rooms/${id}`);
+  };
+
   return (
     <div
       className="roomCardContainer"
@@ -9,7 +23,7 @@ const RoomsContainerCard = ({ imgUrl, type, bedType, occupancy, order }) => {
     >
       <img src={imgUrl} alt="bedroom" />
       <div className="aboutRoom">
-        <div className="roomType">
+        <div className="roomType" onClick={handleClick}>
           <h1>{type}</h1>
         </div>
         <div className="roomType">

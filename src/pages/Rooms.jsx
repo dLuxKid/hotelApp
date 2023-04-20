@@ -19,6 +19,7 @@ const Rooms = () => {
             <RoomsContainerCard
               order={item.id % 2 == 0 ? "row-reverse" : "row"}
               key={item.id}
+              id={item.id}
               type={item.type}
               bedType={item.bedType}
               occupancy={item.occupancy}

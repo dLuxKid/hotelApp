@@ -21,6 +21,7 @@ const Home = () => {
               {hotelRooms.map((item) => (
                 <OfferListCard
                   key={item.id}
+                  id={item.id}
                   img={item.imgUrl}
                   type={item.type}
                 />
