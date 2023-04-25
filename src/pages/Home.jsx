@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import ImageHolder from "../components/ImageHolder";
 import bedroom from "../assets/bedroom.png";
 import "../styles/home.css";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
+
   return (
     <main>
       <ImageHolder imgUrl={bedroom} alt="bedroom" />
@@ -16,6 +17,7 @@ const Home = () => {
           <div className="specialOffer">
             <div className="specialOffer_Header">
               <h3>Special Offer</h3>
+              <p onClick={() => navigate("/rooms")}>View all</p>
             </div>
             <div className="specialOfferList_Contianer">
               {hotelRooms.map((item) => (

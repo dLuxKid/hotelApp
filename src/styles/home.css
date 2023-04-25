@@ -19,7 +19,7 @@
 .specialOffer_Header {
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   margin-bottom: 1rem;
@@ -30,8 +30,12 @@
   font-size: 600;
 }
 
+.specialOffer_Header p {
+  cursor: pointer;
+}
+
 .bookNow_Container {
-    margin-top: 6.25rem;
+  margin-top: 6.25rem;
   height: 200px;
   width: 100%;
   background: #ffcb61;
@@ -42,16 +46,16 @@
 }
 
 .bookNow_Container h3 {
-    align-self: flex-start;
-    color: #fff;
+  align-self: flex-start;
+  color: #fff;
 }
 
 .bookNow_Container button {
-    background: rgba(0, 0, 0, 0.01);
-    color: #fff;
-    text-transform: uppercase;
-    padding: 1rem 1.5rem;
-    border-radius: 5px;
-    text-align: center;
-    align-self: center;
+  background: rgba(0, 0, 0, 0.01);
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  text-align: center;
+  align-self: center;
 }

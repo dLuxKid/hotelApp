@@ -2,6 +2,9 @@ import junior from "../assets/juniorSuite.jpg";
 import deluxe from "../assets/deluxeSuite.jpg";
 import executive from "../assets/executiveSUite.jpg";
 import presidential from "../assets/PresidentialSuite.jpg";
+import standard from "../assets/standard.jpg";
+import family from "../assets/family.jpeg";
+import penthouse from '../assets/penthouse.jpg'
 
 export const hotelRooms = [
   {
@@ -68,5 +71,51 @@ export const hotelRooms = [
       "Private balcony with outdoor seating and city views",
     ],
     imgUrl: presidential,
+  },
+  {
+    id: 5,
+    type: "Standard Room",
+    price: 75,
+    bedType: "Queen",
+    occupancy: 2,
+    amenities: [
+      "Ensuite bathroom with shower",
+      "Flat-screen TV with cable channels",
+      "Complimentary Wi-Fi",
+      "Mini-fridge and coffee maker",
+    ],
+    imgUrl: standard,
+  },
+  {
+    id: 6,
+    type: "Family Suite",
+    price: 300,
+    bedType: "King and two twin beds",
+    occupancy: 4,
+    amenities: [
+      "Ensuite bathroom with shower and bathtub",
+      "Flat-screen TVs with cable channels",
+      "Complimentary Wi-Fi",
+      "Mini-fridge and coffee maker",
+      "Separate living area with sofa and chairs",
+    ],
+    imgUrl: family,
+  },
+  {
+    id: 7,
+    type: "Penthouse Suite",
+    price: 1500,
+    bedType: "King",
+    occupancy: 2,
+    amenities: [
+      "Ensuite bathroom with double sink, shower, and Jacuzzi tub",
+      "Large flat-screen TV with premium cable channels and DVD player",
+      "Complimentary Wi-Fi",
+      "Full kitchen with stainless steel appliances and granite countertops",
+      "Dining area with table and chairs",
+      "Separate living area with sofa, chairs, and fireplace",
+      "Private rooftop",
+    ],
+    imgUrl: penthouse,
   },
 ];

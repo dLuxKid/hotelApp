@@ -1,0 +1,35 @@
+.reservationForm {
+  padding: 5rem;
+  border-radius: 5px;
+  background: #ffcb61;
+}
+
+.reservationForm input {
+  width: 100%;
+  align-self: stretch;
+  height: 60px;
+  border: 1px solid #717171;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.reservationForm input:last-child {
+  margin-bottom: 0;
+}
+
+.reservationForm input:placeholder-shown {
+  color: #717171;
+}
+
+.reservationForm input::placeholder {
+  color: #717171;
+}
+
+.reservationForm button {
+    margin-top: 3rem;
+    align-self: flex-end;
+    border-radius: 5px;
+    padding:  21px 45px ;
+    background: var(--base-blue);
+    color: #fff;
+}
