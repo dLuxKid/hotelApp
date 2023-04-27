@@ -1,58 +1,85 @@
-import React from "react";
+import React, { useReducer } from "react";
 import "../styles/reservationForm.css";
 
+const initialState = {
+  arrival: "",
+  departure: "",
+  adults: "",
+  children: "",
+};
+
+const reducer = (state, action) => {
+  return { ...state, [action.input]: action.value };
+};
+
 const ReservationForm = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const handleChange = (e) => {
+    const action = {
+      input: e.target.name,
+      value: e.target.value,
+    };
+    dispatch(action);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(state);
+  };
+
   return (
     <form action="" className="reservationForm">
       <input
         autoFocus
         type="date"
         placeholder="CHECK-IN DATE"
-        // onChange={}
+        onChange={handleChange}
         autoCapitalize="false"
-        name="email"
+        inputMode="numeric"
+        name="arrival"
         // onBlur={}
-        // value={}
+        value={state.arrival}
         required
       />
       <input
         autoFocus
         type="date"
         placeholder="CHECK-OUT DATE"
-        // onChange={}
-        inputMode=""
+        onChange={handleChange}
+        inputMode="numeric"
         autoCapitalize="false"
-        name=""
+        name="departure"
         // onBlur={}
-        // value={}
+        value={state.departure}
         required
       />
       <input
         autoFocus
         type="text"
-        placeholder="No. of Adults"
-        // onChange={}
-        inputMode=""
+        placeholder="NO. of ADULTS"
+        onChange={handleChange}
+        inputMode="numeric"
         autoCapitalize="false"
-        name=""
+        name="adults"
         // onBlur={}
-        // value={}
+        value={state.adults}
         required
       />
       <input
         autoFocus
         type="text"
-        placeholder="No. of Children"
-        // onChange={}
-        inputMode=""
+        placeholder="NO. of CHILDREN"
+        onChange={handleChange}
+        inputMode="numeric"
         autoCapitalize="false"
-        name=""
+        name="children"
         // onBlur={}
-        // value={}
+        value={state.children}
         required
       />
 
-      <button>checkout now</button>
+      <button onClick={handleSubmit}>checkout now</button>
     </form>
   );
 };

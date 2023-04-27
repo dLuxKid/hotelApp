@@ -1,0 +1,17 @@
+.aboutHotel {
+  width: 100%;
+  align-items: center;
+}
+
+.aboutHotel img {
+  width: 50%;
+  height: auto;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.aboutHotel p {
+  color: #000;
+  margin-inline: .5rem;
+}

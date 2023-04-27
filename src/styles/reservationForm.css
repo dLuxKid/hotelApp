@@ -31,5 +31,6 @@
     border-radius: 5px;
     padding:  21px 45px ;
     background: var(--base-blue);
+    text-transform: capitalize;
     color: #fff;
 }
