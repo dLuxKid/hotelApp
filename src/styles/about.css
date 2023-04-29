@@ -1,6 +1,9 @@
 .aboutHotel {
   width: 100%;
   align-items: center;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .aboutHotel img {
@@ -13,5 +16,4 @@
 
 .aboutHotel p {
   color: #000;
-  margin-inline: .5rem;
 }

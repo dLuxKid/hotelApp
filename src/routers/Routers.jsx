@@ -7,6 +7,7 @@ import PublicRouter from "./ProtectedRoutes";
 import Rooms from "../pages/Rooms";
 import AboutRooms from "../pages/AboutRooms";
 import About from "../pages/About";
+import Dining from "../pages/Dining";
 
 const Routers = () => {
   return (
@@ -19,6 +20,7 @@ const Routers = () => {
         <Route path="/rooms" element={<Rooms />} />
         <Route path="/rooms/:id" element={<AboutRooms />} />
         <Route path="/about" element={<About />} />
+        <Route path="/dining" element={<Dining />} />
       </Route>
     </Routes>
   );
