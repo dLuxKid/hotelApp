@@ -20,9 +20,9 @@ const Home = () => {
               <p onClick={() => navigate("/rooms")}>View all</p>
             </div>
             <div className="specialOfferList_Contianer">
-              {hotelRooms.map((item) => (
+              {hotelRooms.map((item, index) => (
                 <OfferListCard
-                  key={item.id}
+                  key={index}
                   id={item.id}
                   img={item.imgUrl}
                   type={item.type}
@@ -32,7 +32,9 @@ const Home = () => {
           </div>
           <div className="bookNow_Container">
             <h3>Book your perfect deals</h3>
-            <button onClick={() => navigate("/rooms")}>Book now</button>
+            <button onClick={() => navigate("/rooms")}>
+              <p>Book now</p>
+            </button>
           </div>
         </div>
       </section>

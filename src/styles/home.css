@@ -59,3 +59,34 @@
   text-align: center;
   align-self: center;
 }
+
+@media screen and (max-width: 768px) {
+  .specialOffer_Container {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .specialOffer_Header {
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .specialOffer_Header h3 {
+    align-self: start;
+  }
+
+  .specialOffer_Header p {
+    align-self: end;
+  }
+
+  .bookNow_Container {
+    flex-direction: column;
+    height: 150px;
+  }
+
+  .bookNow_Container button {
+    align-self: flex-end;
+  }
+}

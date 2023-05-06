@@ -5,14 +5,24 @@ nav {
   left: 0;
   right: 0;
   width: 100%;
+  transition: 0.3s all ease-in-out;
 }
 
-nav ul {
+.nav,
+.menu {
+  width: 100%;
+}
+
+.menu ul {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 2rem 7.5%;
+}
+
+.icon {
+  display: none;
 }
 
 .navlink {
@@ -32,4 +42,63 @@ nav ul {
 .active {
   background: #328cff;
   font-weight: 600;
+}
+
+@media screen and (max-width: 992px) {
+  .nav {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.4);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: none;
+  }
+
+  .menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    line-height: 20px;
+  }
+
+  nav ul {
+    position: relative;
+    gap: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .icon {
+    display: block;
+    position: absolute;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+
+  .show_menu {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 360px) {
 }

@@ -4,7 +4,6 @@ import "../styles/offerListCard.css";
 import { useNavigate } from "react-router-dom";
 
 const OfferListCard = ({ img, type, id }) => {
-  
   const navigate = useNavigate();
   const handleClick = () => {
     navigate(`/rooms/${id}`);
@@ -18,9 +17,6 @@ const OfferListCard = ({ img, type, id }) => {
       </div>
       <div className="offerListBookNow" onClick={handleClick}>
         <p>Book Now</p>
-        {/* <span>
-          <Icon icon="material-symbols:arrow-right-rounded" />
-        </span> */}
       </div>
     </div>
   );

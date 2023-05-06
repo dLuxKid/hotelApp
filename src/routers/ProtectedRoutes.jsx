@@ -14,4 +14,4 @@ const PublicRouter = () => {
   return currentUser?.uid ? <Outlet /> : <Navigate to="/" />;
 };
 
-export default PublicRouter
+export default PublicRouter;

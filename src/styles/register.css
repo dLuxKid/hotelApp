@@ -1,5 +1,4 @@
 .authSection {
-  padding: 12.5rem 2.5% 7.5%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -58,3 +57,18 @@
 .authFormContainer {
   width: 35%;
 }
+
+/* @media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 360px) {
+} */

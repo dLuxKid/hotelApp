@@ -11,12 +11,22 @@
   object-position: center;
 }
 
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
 .aboutRoom {
   width: 50%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0 1rem;
+  padding: 1rem;
   justify-content: center;
 }
 
@@ -40,4 +50,29 @@
 .roomType p {
   color: #000;
   text-indent: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .row,
+  .row-reverse {
+    flex-direction: column-reverse;
+  }
+
+  .roomCardContainer img,
+  .aboutRoom {
+    width: 100%;
+  }
+
+  .aboutRoom {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 360px) {
 }

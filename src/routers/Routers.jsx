@@ -8,6 +8,8 @@ import Rooms from "../pages/Rooms";
 import AboutRooms from "../pages/AboutRooms";
 import About from "../pages/About";
 import Dining from "../pages/Dining";
+import Gallery from "../pages/Gallery";
+import Bookings from "../pages/Bookings";
 
 const Routers = () => {
   return (
@@ -21,6 +23,8 @@ const Routers = () => {
         <Route path="/rooms/:id" element={<AboutRooms />} />
         <Route path="/about" element={<About />} />
         <Route path="/dining" element={<Dining />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/booking" element={<Bookings />} />
       </Route>
     </Routes>
   );

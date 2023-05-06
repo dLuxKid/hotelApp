@@ -17,10 +17,7 @@ const RoomsContainerCard = ({
   };
 
   return (
-    <div
-      className="roomCardContainer"
-      style={{ display: "flex", flexDirection: order }}
-    >
+    <div className={`roomCardContainer ${order}`}>
       <img src={imgUrl} alt="bedroom" />
       <div className="aboutRoom">
         <div className="roomType" onClick={handleClick}>

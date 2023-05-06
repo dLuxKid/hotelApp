@@ -67,7 +67,7 @@ button {
 }
 
 section {
-  padding: 12.5rem 5% 5rem;
+  padding: 12.5rem 5% 7.5%;
   position: relative;
 }
 
@@ -95,9 +95,13 @@ section {
     line-height: 1.3rem;
     font-weight: 500;
   }
+
+  section {
+    padding: 9.375rem 5% 5%;
+  }
 }
 
-@media screen and (max-width: 660px) {
+@media screen and (max-width: 662px) {
   h1 {
     font-size: 1.5rem;
     line-height: 1.75rem;
@@ -113,7 +117,7 @@ section {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
   h1 {
     font-size: 1.2rem;
     line-height: 1.25rem;
@@ -129,4 +133,23 @@ section {
     line-height: 1rem;
     font-weight: 400;
   }
+
+  section {
+    padding: 6.25rem 5% 5%;
+  }
 }
+
+/* @media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 360px) {
+} */

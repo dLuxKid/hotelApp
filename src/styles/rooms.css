@@ -3,7 +3,6 @@
   flex-direction: column;
   gap: 2.5rem;
   width: 100%;
-  /* max-width: 56.25rem; */
 }
 
 .roomsHeader {
@@ -23,4 +22,26 @@
   background: #fff;
   border-radius: 10px;
   padding: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  .roomsHeader,
+  .roomsContainer {
+    padding: 1.5rem;
+  }
+
+  .roomsSection {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .roomsHeader,
+  .roomsContainer {
+    padding: 1rem;
+  }
+
+  .roomsSection {
+    gap: 1.5rem;
+  }
 }
