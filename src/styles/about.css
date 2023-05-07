@@ -8,12 +8,28 @@
 
 .aboutHotel img {
   width: 50%;
-  height: auto;
-  max-height: 500px;
   object-fit: cover;
   object-position: center;
 }
 
 .aboutHotel p {
   color: #000;
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+  .aboutHotel img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+}
+
+@media screen and (max-width: 360px) {
 }

@@ -20,7 +20,7 @@ const Register = () => {
             <p className={click === "signin" && "border_bottom"}>Sign in</p>
           </div>
           <div onClick={() => setClick("register")}>
-            <p className={click === "register" && "border_bottom"}>Register</p>
+            <p>Register</p>
           </div>
         </div>
         <div className="authForm">

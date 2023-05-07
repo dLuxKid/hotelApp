@@ -16,7 +16,7 @@
 .authMenu div {
   padding-inline: 0 150px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.3s ease-in-out;
 }
 
 .authMenu div p {
@@ -25,15 +25,15 @@
   color: var(--base-blue);
 }
 
-.border_bottom {
-  border-bottom: 2px solid var(--base-blue) !important;
-}
-
 .authMenu div:nth-child(2) {
   border-radius: 20px;
   padding-inline: 50px 150px;
   border: 1px solid #f5f5f5;
   box-shadow: rgba(0, 0, 0, 0.1) 1.95px 1.95px 2.6px;
+}
+
+.border_bottom {
+  border-bottom: 2px solid var(--base-blue) !important;
 }
 
 .authForm {
@@ -46,6 +46,7 @@
 
 .authImgContainer {
   width: 60%;
+  max-width: 700px;
   object-fit: cover;
   object-position: center;
 }
@@ -55,20 +56,54 @@
 }
 
 .authFormContainer {
-  width: 35%;
+  width: 40%;
+  max-width: 700px;
 }
 
-/* @media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
 }
 
 @media screen and (max-width: 768px) {
+  .authMenu {
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .authForm {
+    flex-direction: column-reverse;
+  }
+  .authFormContainer,
+  .authImgContainer {
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 662px) {
+  .authMenu div {
+    padding-inline: 0;
+    overflow: hidden;
+  }
+
+  .authMenu div p {
+    padding: 10px 30px;
+    text-align: start;
+  }
+
+  .authMenu div:nth-child(2) {
+    border-radius: 15px;
+    padding-inline: 0;
+  }
 }
 
 @media screen and (max-width: 480px) {
+  .authFormContainer,
+  .authImgContainer {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 360px) {
-} */
+  .authMenu div p {
+    padding: 7px 21px;
+  }
+}

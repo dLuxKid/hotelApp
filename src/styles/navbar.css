@@ -18,7 +18,7 @@ nav {
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 7.5%;
+  padding: 2rem 2.5%;
 }
 
 .icon {
@@ -29,7 +29,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 3rem 0.5rem 1rem;
+  padding: 0.5rem 3rem 0.5rem 0.5rem;
   color: #fff;
   border-radius: 20px;
 }

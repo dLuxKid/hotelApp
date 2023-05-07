@@ -26,7 +26,6 @@
 .galleryTitle_Header {
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   width: 100%;
 }
 
@@ -51,4 +50,16 @@
   width: 31%;
   max-height: 300px;
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .galleryImages img {
+    width: 48.5%;
+  }
+}
+
+@media screen and (max-width: 662px) {
+  .galleryImages img {
+    width: 100%;
+  }
 }

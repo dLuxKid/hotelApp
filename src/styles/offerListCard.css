@@ -7,6 +7,10 @@
   border-bottom: 1.5px solid #dfdfdf;
 }
 
+.offerListCard:first-child {
+  border-top: 1.5px solid #dfdfdf;
+}
+
 .offerListCard:last-child {
   border-bottom: 0;
 }

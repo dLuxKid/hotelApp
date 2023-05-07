@@ -23,12 +23,8 @@ const About = () => {
       <section>
         {aboutHotel.map((item, index) => (
           <div
-            className="aboutHotel"
+            className={`aboutHotel ${index == 1 ? "row-reverse" : "row"}`}
             key={index}
-            style={{
-              display: "flex",
-              flexDirection: index == 1 ? "row-reverse" : "row",
-            }}
           >
             <img src={item.imgUrl} alt="bedroom" />
             <p>{item.text}</p>

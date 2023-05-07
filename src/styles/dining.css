@@ -15,7 +15,6 @@
 }
 
 .lightBg {
-  /* background-color: #f5f5f5; */
   background-image: url("../assets/food.jpg");
   background-size: cover;
   background-position: center;
@@ -44,13 +43,12 @@
   width: 50%;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  justify-content: space-between;
 }
 
 .restaurantImgs img {
   object-fit: cover;
   object-position: center;
-  max-height: 300px;
 }
 
 .restaurantImgs img:nth-child(1) {
@@ -59,10 +57,12 @@
 
 .restaurantImgs img:nth-child(2) {
   width: 30%;
+  margin-top: 0.5rem;
 }
 
 .restaurantImgs img:nth-child(3) {
   width: 68.5%;
+  margin-top: 0.5rem;
 }
 
 .restaurantText {
@@ -73,9 +73,49 @@
 }
 
 .restaurantText:nth-child(2) {
-    padding-inline:1rem 0;
+  padding-inline: 1rem 0;
 }
 
 .restaurantText p {
   color: #000;
+}
+
+@media screen and (max-width: 992px) {
+  .aboutRestaurant {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .restaurantImgs {
+    width: 100%;
+  }
+
+  .restaurantText {
+    width: 100%;
+  }
+
+  .restaurantText:nth-child(2) {
+    padding-inline: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    height: 15.625rem;
+  }
+}
+
+@media screen and (max-width: 662px) {
+}
+
+@media screen and (max-width: 480px) {
+  .headerContainer {
+    height: 12.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .headerContainer {
+    height: 11.25rem;
+  }
 }
