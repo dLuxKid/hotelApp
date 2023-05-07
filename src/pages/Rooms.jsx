@@ -6,6 +6,7 @@ import { hotelRooms } from "../data/data";
 import RoomsContainerCard from "../components/RoomsContainerCard";
 
 const Rooms = () => {
+  document.title = "rooms";
 
   return (
     <main>

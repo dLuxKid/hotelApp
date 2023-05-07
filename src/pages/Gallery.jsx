@@ -4,6 +4,7 @@ import ImageHolder from "../components/ImageHolder";
 import outsideView from "../assets/outside.jpg";
 
 const Gallery = () => {
+  document.title = "gallery view";
   return (
     <main>
       <ImageHolder imgUrl={outsideView} alt={"restaurant"} />

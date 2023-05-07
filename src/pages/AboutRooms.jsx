@@ -9,6 +9,8 @@ import ReservationForm from "../components/ReservationForm";
 const AboutRooms = () => {
   const { id } = useParams();
 
+  document.title = "suite " + id;
+
   const room = hotelRooms.filter((item) => item.id == id);
   const suite = room[0];
 

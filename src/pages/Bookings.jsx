@@ -5,6 +5,7 @@ import "../styles/bookings.css";
 import { useNavigate } from "react-router-dom";
 
 const Bookings = () => {
+  document.title = "reservations";
   const navigate = useNavigate();
   return (
     <main>

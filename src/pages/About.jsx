@@ -17,6 +17,7 @@ const aboutHotel = [
 ];
 
 const About = () => {
+  document.title = "About";
   return (
     <main>
       <ImageHolder imgUrl={bedroom} alt={"bedroom"} />

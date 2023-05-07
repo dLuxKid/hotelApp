@@ -8,6 +8,7 @@ import food3 from "../assets/food3.jpg";
 import restaurant from "../assets/restaurant.jpg";
 
 const Dining = () => {
+  document.title = " dining view";
   return (
     <main>
       <ImageHolder imgUrl={outsideView} alt={"restaurant"} />
