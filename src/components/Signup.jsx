@@ -123,7 +123,6 @@ const Signup = () => {
         className="small_mb"
       />
       <input
-        autoFocus
         type="text"
         placeholder="enter email"
         onChange={handleChange}

@@ -29,7 +29,7 @@ const AboutRooms = () => {
             <h1>DETAILS</h1>
             <div className="amenities">
               <h3>price</h3>
-              <p>{suite.price}</p>
+              <p>${suite.price}</p>
               <h3>Bed type</h3>
               <p>{suite.bedType}</p>
               <h3>amenities</h3>

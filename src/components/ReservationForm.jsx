@@ -25,13 +25,11 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(state);
   };
 
   return (
     <form action="" className="reservationForm">
       <input
-        autoFocus
         type="date"
         placeholder="CHECK-IN DATE"
         onChange={handleChange}
@@ -43,7 +41,6 @@ const ReservationForm = () => {
         required
       />
       <input
-        autoFocus
         type="date"
         placeholder="CHECK-OUT DATE"
         onChange={handleChange}
@@ -55,7 +52,6 @@ const ReservationForm = () => {
         required
       />
       <input
-        autoFocus
         type="text"
         placeholder="NO. of ADULTS"
         onChange={handleChange}
@@ -67,7 +63,6 @@ const ReservationForm = () => {
         required
       />
       <input
-        autoFocus
         type="text"
         placeholder="NO. of CHILDREN"
         onChange={handleChange}

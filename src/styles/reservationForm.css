@@ -26,11 +26,55 @@
 }
 
 .reservationForm button {
-    margin-top: 3rem;
-    align-self: flex-end;
-    border-radius: 5px;
-    padding:  21px 45px ;
-    background: var(--base-blue);
-    text-transform: capitalize;
-    color: #fff;
+  margin-top: 3rem;
+  align-self: flex-end;
+  border-radius: 5px;
+  padding: 21px 45px;
+  background: var(--base-blue);
+  text-transform: capitalize;
+  color: #fff;
+}
+
+@media screen and (max-width: 992px) {
+  .reservationForm {
+    padding: 3rem 5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .reservationForm {
+    padding: 2rem 3rem;
+  }
+
+  .reservationForm button {
+    margin-top: 2rem;
+    padding: 15px 45px;
+  }
+}
+
+@media screen and (max-width: 662px) {
+  .reservationForm {
+    padding: 1.5rem 3rem;
+  }
+
+  .reservationForm input {
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .reservationForm {
+    padding: 1rem 1.5rem;
+  }
+
+  .reservationForm button {
+    margin-top: 1.5rem;
+    padding: 10px 30px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .reservationForm button {
+    padding: 7px 21px;
+  }
 }
