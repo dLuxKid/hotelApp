@@ -30,6 +30,9 @@ const Signup = () => {
     confirmPassword: true,
   });
 
+  const [pending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+
   const handleChange = (e) => {
     const action = {
       input: e.target.name,
@@ -93,17 +96,23 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     if (isValid.email && isValid.password) {
+      setIsPending(true);
       createUserWithEmailAndPassword(auth, state.email, state.password)
         .then((userCredential) => {
           const user = userCredential.user;
           setCurrentUser(user);
+          setError(null);
+          setIsPending(false);
           navigate("/home");
-          console.log(user);
         })
         .catch((err) => {
-          console.log(err);
+          setError(err.message);
+          setIsPending(false);
         });
+    } else {
+      setError("Invalid Details");
     }
   };
 
@@ -120,7 +129,7 @@ const Signup = () => {
         onBlur={validateName}
         value={state.username}
         required
-        className="small_mb"
+        className={`small_mb ${error && "border_red"}`}
       />
       <input
         type="text"
@@ -132,7 +141,7 @@ const Signup = () => {
         onBlur={validateEmail}
         value={state.email}
         required
-        className="small_mb"
+        className={`small_mb ${error && "border_red"}`}
       />
       <input
         type="password"
@@ -144,7 +153,7 @@ const Signup = () => {
         onChange={handleChange}
         value={state.password}
         required
-        className="small_mb"
+        className={`small_mb ${error && "border_red"}`}
       />
       <input
         type="password"
@@ -156,11 +165,12 @@ const Signup = () => {
         onChange={handleChange}
         value={state.confirmPassword}
         required
-        className="small_mb"
+        className={`small_mb ${error && "border_red"}`}
       />
       <div className="authBtnContainer">
-        <p>Recover Password?</p>
-        <button onClick={handleSubmit}>Sign in</button>
+        {pending && <button disabled>Loading..</button>}
+        {!pending && <button onClick={handleSubmit}>Sign in</button>}
+        {error && <h3> {error} </h3>}
         <div className="horizontalDash">
           <div></div>
           <div></div>

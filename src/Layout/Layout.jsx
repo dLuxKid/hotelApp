@@ -5,14 +5,21 @@ import Routers from "../routers/Routers";
 import { useAuthProvider } from "../contexts/context";
 
 const Layout = () => {
-  const { currentUser } = useAuthProvider();
-  return (
-    <>
-      <div className="bgTopImg"></div>
-      {currentUser?.uid && <Navbar />}
-      <Routers />
-    </>
-  );
+  const { currentUser, authCheck } = useAuthProvider();
+
+  if (!authCheck) {
+    return null;
+  }
+
+  if (authCheck) {
+    return (
+      <>
+        <div className="bgTopImg"></div>
+        {currentUser?.uid && <Navbar />}
+        <Routers />
+      </>
+    );
+  }
 };
 
 export default Layout;

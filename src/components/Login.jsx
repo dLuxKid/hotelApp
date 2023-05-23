@@ -23,6 +23,9 @@ const Login = () => {
     password: true,
   });
 
+  const [pending, setIsPending] = useState(false);
+  const [error, setError] = useState(null);
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleChange = (e) => {
@@ -61,17 +64,23 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(null);
     if (isValid.email && isValid.password) {
+      setIsPending(true);
       signInWithEmailAndPassword(auth, state.email, state.password)
         .then((userCredential) => {
           const user = userCredential.user;
           setCurrentUser(user);
+          setError(null);
+          setIsPending(false);
           navigate("/home");
-          console.log(user);
         })
         .catch((err) => {
-          console.log(err);
+          setError(err.message);
+          setIsPending(false);
         });
+    } else {
+      setError("Invalid Details");
     }
   };
 
@@ -88,7 +97,7 @@ const Login = () => {
         onBlur={validateEmail}
         value={state.email}
         required
-        className="big_mb"
+        className={`big_mb ${error && "border_red"}`}
       />
       <input
         type="password"
@@ -100,11 +109,13 @@ const Login = () => {
         onChange={handleChange}
         value={state.password}
         required
-        className="big_mb"
+        className={`big_mb ${error && "border_red"}`}
       />
       <div className="authBtnContainer">
         <p>Recover Password?</p>
-        <button onClick={handleSubmit}>Sign in</button>
+        {pending && <button disabled>Loading..</button>}
+        {!pending && <button onClick={handleSubmit}>Sign in</button>}
+        {error && <h3> {error} </h3>}
         <div className="horizontalDash">
           <div></div>
           <div></div>

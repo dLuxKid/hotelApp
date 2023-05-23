@@ -25,6 +25,10 @@ input {
   margin-bottom: 4rem;
 }
 
+.border_red {
+  border: 1px solid salmon;
+}
+
 input::placeholder {
   color: #4f555a;
   text-transform: capitalize;
@@ -44,15 +48,23 @@ input::placeholder {
 
 .authBtnContainer p {
   align-self: flex-end;
-  padding: 30px 30px 50px 0;
+  padding: 30px 30px 10px 0;
   color: #c7c7c7;
   font-size: 14px;
   cursor: pointer;
 }
 
+.authBtnContainer h3 {
+  align-self: flex-start;
+  padding: 10px 0;
+  color: salmon;
+  font-size: 18px;
+}
+
 .authBtnContainer button {
   width: 100%;
   padding: 15px 21px;
+  margin-top: 40px;
   border: 0;
   color: #fff;
   border-radius: 10px;
