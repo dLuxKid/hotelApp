@@ -36,6 +36,11 @@
   color: #fff;
 }
 
+.reservationForm p {
+  color: salmon;
+  margin-top: 10px;
+}
+
 @media screen and (max-width: 992px) {
   .reservationForm {
     padding: 3rem 5rem;

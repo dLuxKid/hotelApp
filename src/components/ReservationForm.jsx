@@ -1,5 +1,8 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import "../styles/reservationForm.css";
+import { useFirestore } from "../hook/useFirestore";
+import { useAuthProvider } from "../contexts/context";
+import { useEffect } from "react";
 
 const initialState = {
   arrival: "",
@@ -9,11 +12,23 @@ const initialState = {
 };
 
 const reducer = (state, action) => {
+  if (action.type == "reservation_made") {
+    return {
+      arrival: "",
+      departure: "",
+      adults: "",
+      children: "",
+    };
+  }
   return { ...state, [action.input]: action.value };
 };
 
-const ReservationForm = () => {
+const ReservationForm = ({ suite }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [reserved, setReserved] = useState("");
+
+  const { addData, reservation, error, success } = useFirestore();
+  const { currentUser } = useAuthProvider();
 
   const handleChange = (e) => {
     const action = {
@@ -25,7 +40,26 @@ const ReservationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (reservation) {
+      setReserved("You already have a reservation");
+    } else {
+      if (
+        state.arrival &&
+        state.departure &&
+        (state.adults || state.children)
+      ) {
+        addData(currentUser.uid, state, suite);
+      }
+    }
   };
+
+  useEffect(() => {
+    if (success) {
+      dispatch({ type: "reservation_made" });
+      setReserved("Reservation successful");
+    }
+  }, [success]);
 
   return (
     <form action="" className="reservationForm">
@@ -36,7 +70,6 @@ const ReservationForm = () => {
         autoCapitalize="false"
         inputMode="numeric"
         name="arrival"
-        // onBlur={}
         value={state.arrival}
         required
       />
@@ -47,7 +80,6 @@ const ReservationForm = () => {
         inputMode="numeric"
         autoCapitalize="false"
         name="departure"
-        // onBlur={}
         value={state.departure}
         required
       />
@@ -58,7 +90,6 @@ const ReservationForm = () => {
         inputMode="numeric"
         autoCapitalize="false"
         name="adults"
-        // onBlur={}
         value={state.adults}
         required
       />
@@ -69,12 +100,13 @@ const ReservationForm = () => {
         inputMode="numeric"
         autoCapitalize="false"
         name="children"
-        // onBlur={}
         value={state.children}
         required
       />
 
       <button onClick={handleSubmit}>checkout now</button>
+      {reserved && <p>{reserved}</p>}
+      {error && <p>{error}</p>}
     </form>
   );
 };

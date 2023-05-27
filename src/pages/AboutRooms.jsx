@@ -38,7 +38,7 @@ const AboutRooms = () => {
               ))}
               {/* <h3>Availability</h3> */}
               <h3 style={{ marginTop: "2rem" }}>reservation form</h3>
-              <ReservationForm />
+              <ReservationForm suite={suite} />
             </div>
           </div>
         </div>
