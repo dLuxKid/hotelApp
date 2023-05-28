@@ -57,13 +57,11 @@ const reservationReducer = (state, action) => {
 export const useFirestore = () => {
   const [state, dispatch] = useReducer(reservationReducer, initialState);
 
-  const addData = async (uid, formValues, suite) => {
+  const addData = async (data) => {
     dispatch({ type: "pending" });
     try {
       const docRef = await addDoc(collection(db, "reservation"), {
-        uid,
-        ...formValues,
-        ...suite,
+        ...data,
         date: Timestamp.now(),
       });
       dispatch({ type: "success", payload: docRef });
@@ -73,10 +71,10 @@ export const useFirestore = () => {
     }
   };
 
-  const deleteData = async (uid) => {
+  const deleteData = async (id) => {
     dispatch({ type: "pending" });
     try {
-      await deleteDoc(doc(db, "reservation", uid));
+      await deleteDoc(doc(db, "reservation", id));
       dispatch({ type: "delete" });
     } catch (error) {
       dispatch({ type: "error", payload: "could not delete reservation" });

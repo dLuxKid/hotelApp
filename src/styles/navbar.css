@@ -23,6 +23,7 @@ nav {
 
 .icon {
   display: none;
+  cursor: pointer;
 }
 
 .navlink {

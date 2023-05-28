@@ -24,3 +24,64 @@
 .noReservation button:hover {
   transform: scale(1.1);
 }
+
+.bookedCardContainer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.bookedImageContainer {
+  width: 50%;
+  max-height: 60vh;
+}
+
+.bookedImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+}
+
+.bookedSuiteInformation {
+  width: 50%;
+  height: 100%;
+}
+
+.bookedSuiteInformation ul {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 5% 0;
+}
+
+.bookedSuiteInformation ul li {
+  width: 100%;
+}
+
+.bookedSuiteInformation ul li h3 {
+  font-weight: 700;
+  text-align: center;
+  color: var(--accent-blue);
+}
+
+.bookedSuiteInformation ul li p span {
+  font-weight: 700;
+  color: var(--accent-blue);
+}
+
+.bookedSuiteInformation ul button {
+  padding: 0.5rem 1.5rem;
+  background: var(--base-blue);
+  color: #fff;
+  border-radius: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+.bookedSuiteInformation ul button:hover {
+  transform: scale(1.05);
+}

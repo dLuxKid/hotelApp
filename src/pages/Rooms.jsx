@@ -16,10 +16,10 @@ const Rooms = () => {
           <h1>Type of Rooms Available</h1>
         </div>
         <div className="roomsContainer">
-          {hotelRooms.map((item) => (
+          {hotelRooms.map((item, index) => (
             <RoomsContainerCard
               order={item.id % 2 == 0 ? "row-reverse" : "row"}
-              key={item.id}
+              key={index}
               id={item.id}
               type={item.type}
               bedType={item.bedType}

@@ -21,11 +21,12 @@ const useCollection = (uid) => {
     const unsubscribe = onSnapshot(
       q,
       (querySnapshot) => {
-        var results = {};
+        var results = [];
         querySnapshot.forEach((doc) => {
-          results = { ...doc.data(), id: doc.id };
+          results.push({ ...doc.data(), id: doc.id });
         });
         setReservation(results);
+        console.log(results);
         setError(null);
       },
       (error) => {

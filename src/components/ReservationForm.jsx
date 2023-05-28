@@ -3,6 +3,7 @@ import "../styles/reservationForm.css";
 import { useFirestore } from "../hook/useFirestore";
 import { useAuthProvider } from "../contexts/context";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   arrival: "",
@@ -27,6 +28,8 @@ const ReservationForm = ({ suite }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [reserved, setReserved] = useState("");
 
+  const navigate = useNavigate();
+
   const { addData, reservation, error, success } = useFirestore();
   const { currentUser } = useAuthProvider();
 
@@ -36,6 +39,14 @@ const ReservationForm = ({ suite }) => {
       value: e.target.value,
     };
     dispatch(action);
+  };
+
+  const noOfDays = (arrival, departure) => {
+    const arrivalDate = new Date(arrival);
+    const departureDate = new Date(departure);
+    const timeDiff = Math.abs(departureDate - arrivalDate);
+    const numberOfDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    return numberOfDays;
   };
 
   const handleSubmit = (e) => {
@@ -49,7 +60,15 @@ const ReservationForm = ({ suite }) => {
         state.departure &&
         (state.adults || state.children)
       ) {
-        addData(currentUser.uid, state, suite);
+        const data = {
+          ...state,
+          uid: currentUser.uid,
+          imgUrl: suite.imgUrl,
+          totalPrice:
+            noOfDays(state.arrival, state.departure) * Number(suite.price),
+          type: suite.type,
+        };
+        addData(data);
       }
     }
   };
@@ -58,6 +77,7 @@ const ReservationForm = ({ suite }) => {
     if (success) {
       dispatch({ type: "reservation_made" });
       setReserved("Reservation successful");
+      navigate("/booking");
     }
   }, [success]);
 
@@ -71,7 +91,6 @@ const ReservationForm = ({ suite }) => {
         inputMode="numeric"
         name="arrival"
         value={state.arrival}
-        required
       />
       <input
         type="date"
@@ -81,7 +100,6 @@ const ReservationForm = ({ suite }) => {
         autoCapitalize="false"
         name="departure"
         value={state.departure}
-        required
       />
       <input
         type="text"
@@ -91,7 +109,6 @@ const ReservationForm = ({ suite }) => {
         autoCapitalize="false"
         name="adults"
         value={state.adults}
-        required
       />
       <input
         type="text"
@@ -101,10 +118,9 @@ const ReservationForm = ({ suite }) => {
         autoCapitalize="false"
         name="children"
         value={state.children}
-        required
       />
-
       <button onClick={handleSubmit}>checkout now</button>
+
       {reserved && <p>{reserved}</p>}
       {error && <p>{error}</p>}
     </form>
