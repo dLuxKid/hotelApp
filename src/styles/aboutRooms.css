@@ -43,7 +43,6 @@
   background: #fff;
   padding: 2rem;
   border-radius: 5px;
-  padding: 1rem;
 }
 
 .aboutSuite h1 {
@@ -69,4 +68,19 @@
   border: 5px solid var(--accent-blue);
   color: #000;
   margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 660px) {
+  .amenities {
+    padding: 2.5%;
+  }
+
+  .amenities p {
+    padding: 0.25rem;
+    margin: 0.25rem 0;
+  }
+
+  .aboutSuite {
+    padding: 1.5%;
+  }
 }
