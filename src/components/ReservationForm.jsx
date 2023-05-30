@@ -30,7 +30,7 @@ const ReservationForm = ({ suite }) => {
 
   const navigate = useNavigate();
 
-  const { addData, reservation, error, success } = useFirestore();
+  const { addData, reservation, error, success, isPending } = useFirestore();
   const { currentUser } = useAuthProvider();
 
   const handleChange = (e) => {
@@ -119,7 +119,8 @@ const ReservationForm = ({ suite }) => {
         name="children"
         value={state.children}
       />
-      <button onClick={handleSubmit}>checkout now</button>
+      {!isPending && <button onClick={handleSubmit}>checkout now</button>}
+      {isPending && <button disabled>Loading...</button>}
 
       {reserved && <p>{reserved}</p>}
       {error && <p>{error}</p>}

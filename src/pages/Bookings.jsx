@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ImageHolder from "../components/ImageHolder";
 import bedroom from "../assets/bedroom.png";
 import "../styles/bookings.css";
@@ -11,13 +11,35 @@ const Bookings = () => {
   document.title = "reservations";
   const navigate = useNavigate();
 
+  const [totalPrice, setTotalPrice] = useState(0);
+
   const { currentUser } = useAuthProvider();
-  const { reservation } = useCollection(currentUser.uid);
+  const { reservation, pending } = useCollection(currentUser.uid);
   const { deleteData, error } = useFirestore();
 
   const handleDelete = (uid) => {
     deleteData(uid);
   };
+
+  useEffect(() => {
+    if (!pending) {
+      const calculatedTotalPrice = reservation.reduce((acc, item) => {
+        return acc + item.totalPrice;
+      }, 0);
+      setTotalPrice(calculatedTotalPrice);
+    }
+  }, [reservation]);
+
+  if (pending) {
+    return (
+      <main>
+        <ImageHolder imgUrl={bedroom} alt={"bedroom"} />
+        <section>
+          <h3>Fetching reservations</h3>
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main>
@@ -25,7 +47,7 @@ const Bookings = () => {
       <section>
         {!reservation.length ? (
           <div className="noReservation">
-            <h1>You have no reservations...</h1>
+            <h1>You have no reservation</h1>
             <button onClick={() => navigate("/home")}>
               <p>Make reservation</p>
             </button>
@@ -50,7 +72,7 @@ const Bookings = () => {
                     {reservations?.children && (
                       <li>
                         <p>
-                          <span>{reservations.children}</span>
+                          <span>{reservations.children}</span> child(ren)
                         </p>
                       </li>
                     )}
@@ -77,8 +99,11 @@ const Bookings = () => {
                 </div>
               </div>
             ))}
-            <div>
-              <h1>Total:{}</h1>
+            <div className="paymentSection">
+              <h3>
+                Total:<span>${totalPrice} </span>
+              </h3>
+              <button>Confirm & Pay</button>
             </div>
           </div>
         )}

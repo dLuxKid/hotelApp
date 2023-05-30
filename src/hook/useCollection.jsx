@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   collection,
   onSnapshot,
@@ -11,8 +11,10 @@ import { db } from "../firebase/firebase";
 const useCollection = (uid) => {
   const [reservation, setReservation] = useState([]);
   const [error, setError] = useState(null);
+  const [pending, setPending] = useState(true);
 
   useEffect(() => {
+    setPending(true);
     const q = query(
       collection(db, "reservation"),
       where("uid", "==", uid),
@@ -26,12 +28,13 @@ const useCollection = (uid) => {
           results.push({ ...doc.data(), id: doc.id });
         });
         setReservation(results);
-        console.log(results);
         setError(null);
+        setPending(false);
       },
       (error) => {
         console.log(error);
         setError("could not fetch data");
+        setPending(false);
       }
     );
 
@@ -39,7 +42,7 @@ const useCollection = (uid) => {
     return () => unsubscribe();
   }, []);
 
-  return { error, reservation };
+  return { error, reservation, pending };
 };
 
 export default useCollection;
