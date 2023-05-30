@@ -19,11 +19,6 @@ const Routers = () => {
         path="/"
         element={!currentUser?.uid ? <Register /> : <Navigate to="/home" />}
       />
-      <Route
-        exact
-        path="*"
-        element={!currentUser?.uid ? <Register /> : <Navigate to="/home" />}
-      />
       <Route element={currentUser?.uid ? <Outlet /> : <Navigate to="/" />}>
         <Route path="/home" element={<Home />} />
         <Route path="/rooms" element={<Rooms />} />
