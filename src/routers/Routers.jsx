@@ -19,15 +19,15 @@ const Routers = () => {
         path="/"
         element={!currentUser?.uid ? <Register /> : <Navigate to="/home" />}
       />
-      {/* <Route element={currentUser?.uid ? <Outlet /> : <Navigate to="/" />}> */}
-      <Route path="/home" element={<Home />} />
-      <Route path="/rooms" element={<Rooms />} />
-      <Route path="/rooms/:id" element={<AboutRooms />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/dining" element={<Dining />} />
-      <Route path="/gallery" element={<Gallery />} />
-      <Route path="/booking" element={<Bookings />} />
-      {/* </Route> */}
+      <Route element={currentUser?.uid ? <Outlet /> : <Navigate to="/" />}>
+        <Route path="/home" element={<Home />} />
+        <Route path="/rooms" element={<Rooms />} />
+        <Route path="/rooms/:id" element={<AboutRooms />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dining" element={<Dining />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/booking" element={<Bookings />} />
+      </Route>
     </Routes>
   );
 };
