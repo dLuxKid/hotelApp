@@ -21,14 +21,16 @@ const Home = () => {
               <p onClick={() => navigate("/rooms")}>View all</p>
             </div>
             <div className="specialOfferList_Contianer">
-              {hotelRooms.map((item, index) => (
-                <OfferListCard
-                  key={index}
-                  id={item.id}
-                  img={item.imgUrl}
-                  type={item.type}
-                />
-              ))}
+              {hotelRooms
+                .filter((item, index) => index < 4)
+                .map((item, index) => (
+                  <OfferListCard
+                    key={index}
+                    id={item.id}
+                    img={item.imgUrl}
+                    type={item.type}
+                  />
+                ))}
             </div>
           </div>
           <div className="bookNow_Container">
