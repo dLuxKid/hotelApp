@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Layout.css";
 import Navbar from "../components/Navbar";
+import Loader from "../components/Loader";
 import Routers from "../routers/Routers";
 import { useAuthProvider } from "../contexts/context";
 
@@ -8,47 +9,16 @@ const Layout = () => {
   const { currentUser, authCheck } = useAuthProvider();
 
   if (!authCheck) {
-    return (
-      <div class="loadingio-spinner-spin-m3lqrc54ost">
-        <div class="ldio-acwytrhokra">
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-          <div>
-            <div></div>
-          </div>
-        </div>
-      </div>
-    );
+    return <Loader />;
   }
 
-  if (authCheck) {
-    return (
-      <>
-        <div className="bgTopImg"></div>
-        {currentUser?.uid && <Navbar />}
-        <Routers />
-      </>
-    );
-  }
+  return (
+    <>
+      <div className="bgTopImg"></div>
+      {currentUser?.uid && <Navbar />}
+      <Routers />
+    </>
+  );
 };
 
 export default Layout;

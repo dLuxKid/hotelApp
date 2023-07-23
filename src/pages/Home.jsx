@@ -22,7 +22,7 @@ const Home = () => {
             </div>
             <div className="specialOfferList_Contianer">
               {hotelRooms
-                .filter((item, index) => index < 4)
+                .filter((item, index) => index % 2 === 0)
                 .map((item, index) => (
                   <OfferListCard
                     key={index}

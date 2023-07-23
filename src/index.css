@@ -20,6 +20,15 @@ html {
   box-sizing: border-box;
   -ms-overflow-style: none;
   /* outline: 1px solid red; */
+  scrollbar-width: 0;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* This makes the scrollbar track transparent, effectively hiding it */
 }
 
 button:is(:hover, :focus, :active, ::before) {

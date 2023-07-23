@@ -27,7 +27,9 @@ const About = () => {
             className={`aboutHotel ${index == 1 ? "row-reverse" : "row"}`}
             key={index}
           >
-            <img src={item.imgUrl} alt="bedroom" />
+            <div className="aboutHotel_Img">
+              <img src={item.imgUrl} alt="bedroom" />
+            </div>
             <p>{item.text}</p>
           </div>
         ))}

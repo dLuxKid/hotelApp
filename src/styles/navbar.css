@@ -45,7 +45,7 @@ nav {
   font-weight: 600;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
   .nav {
     position: fixed;
     z-index: 99;
@@ -90,16 +90,4 @@ nav {
   .show_menu {
     display: block;
   }
-}
-
-@media screen and (max-width: 768px) {
-}
-
-@media screen and (max-width: 662px) {
-}
-
-@media screen and (max-width: 480px) {
-}
-
-@media screen and (max-width: 360px) {
 }
